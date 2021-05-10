@@ -1,0 +1,7 @@
+{
+  "name": "ionic4-device-motion",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
