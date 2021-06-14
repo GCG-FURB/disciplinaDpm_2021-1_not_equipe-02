@@ -365,3 +365,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# latex
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
