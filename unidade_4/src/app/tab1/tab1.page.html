@@ -1,0 +1,124 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      ISA HealtInfo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="cadastrarAlergia()"><ion-icon name="sad-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="cadastrarMedicamento()"><ion-icon name="bandage-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="cadastrarContato()"><ion-icon name="call-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="cadastrarDoenca()"><ion-icon name="heart-dislike-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-list #listaDoencas>
+
+    <ion-list-header>
+      <ion-label><ion-icon name="heart-dislike-outline"></ion-icon> Doenças crônicas</ion-label>
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let doenca of doencas">
+
+      <ion-item>
+        <ion-label text-wrap>
+          <h4>{{ doenca.nome }}</h4>
+          <ion-text color="secondary">
+            <p>{{ doenca.desc }}</p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="secondary" (click)="updateDoenca(doenca)">Atualizar</ion-item-option>
+        <ion-item-option color="danger" (click)="deleteDoenca(doenca)">Excluir</ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <ion-list #listaContatos>
+
+    <ion-list-header>
+      <ion-label><ion-icon name="call-outline"></ion-icon> Contatos de emergência</ion-label>
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let contato of contatos">
+
+      <ion-item>
+        <ion-label text-wrap>
+          <h4>{{ contato.nome }}</h4>
+          <ion-text color="secondary">
+            <p>{{ contato.telefone }}</p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="secondary" (click)="updateContato(contato)">Atualizar</ion-item-option>
+        <ion-item-option color="danger" (click)="deletarContato(contato)">Excluir</ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <ion-list #listaMedicamentos>
+
+    <ion-list-header>
+      <ion-label><ion-icon name="bandage-outline"></ion-icon> Medicamentos em uso</ion-label>
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let medicamento of medicamentos">
+
+      <ion-item>
+        <ion-label text-wrap>
+          <h4>{{ medicamento.nome }}</h4>
+          <ion-text color="secondary">
+            <p>{{ medicamento.desc }}</p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="secondary" (click)="updateMedicamento(medicamento)">Atualizar</ion-item-option>
+        <ion-item-option color="danger" (click)="deleteMedicamento(medicamento)">Excluir</ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <ion-list #listaAlergias>
+
+    <ion-list-header>
+      <ion-label><ion-icon name="sad-outline"></ion-icon> Alergias</ion-label>
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let alergia of alergias">
+
+      <ion-item>
+        <ion-label text-wrap>
+          <h4>{{ alergia.nome }}</h4>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="secondary" (click)="updateAlergia(alergia)">Atualizar</ion-item-option>
+        <ion-item-option color="danger" (click)="deleteAlergia(alergia)">Excluir</ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>
